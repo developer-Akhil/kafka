@@ -93,9 +93,51 @@ Since Kafka 2.4, it is possible to configure consumers to read from the closest 
 # Producer Acknowledgment 
 
 In order to write data to the Kafka cluster, the producer has another choice of acknowledgment. It means the producer can get a confirmation of its data writes by receiving the following acknowledgments:
-"acks=0: This means that the producer sends the data to the broker but does not wait for the acknowledgement. This leads to possible data loss because without confirming that the data is successfully sent to the broker or may be the broker is down, it sends another one."
-"acks=1: This means that the producer will wait for the leader's acknowledgement. The leader asks the broker whether it successfully received the data, and then returns feedback to the producer. In such case, there is limited data loss only."
-"acks=all: Here, the acknowledgment is done by both the leader and its followers. When they successfully acknowledge the data, it means the data is successfully received. In this case, there is no data loss."
+**acks=0**: This means that the producer sends the data to the broker but does not wait for the acknowledgement. This leads to possible data loss because without confirming that the data is successfully sent to the broker or may be the broker is down, it sends another one.
+
+**acks=1**: This means that the producer will wait for the leader's acknowledgement. The leader asks the broker whether it successfully received the data, and then returns feedback to the producer. In such case, there is limited data loss only.
+**acks=all**: Here, the acknowledgment is done by both the leader and its followers. When they successfully acknowledge the data, it means the data is successfully received. In this case, there is no data loss.
+
+![image](https://github.com/user-attachments/assets/5c8af9ed-5042-4d94-b6d2-4f9d7c3e843c)
+
+**Let' see an example**
+Suppose, a producer writes data to Broker1, Broker 2, and Broker 3.
+
+**Case1**: Producer sends data to each of the Broker, but not receiving any acknowledgment. Therefore, there can be a severe data loss, and the correct data could not be conveyed to the consumers.
+![image](https://github.com/user-attachments/assets/8f406e55-ce9e-4500-99bd-db51b76891dc)
+
+**Case2**: The producers send data to the brokers. Broker 1 holds the leader. Thus, the leader asks Broker 1 whether it has successfully received data. After receiving the Broker's confirmation, the leader sends the feedback to the Producer with ack=1.
+![image](https://github.com/user-attachments/assets/1e9e9900-be34-4818-bcfd-98cbe012dc34)
+
+**Case3:** The producers send data to each broker. Now, the leader and its replica/ISR will ask their respective brokers about the data. Finally, acknowledge the producer with the feedback.
+
+![image](https://github.com/user-attachments/assets/dee8110c-6381-4fc4-9bf2-1145e9cfaed2)
+
+![image](https://github.com/user-attachments/assets/32a983ca-393f-4928-b52b-2ced56787977)
+
+![image](https://github.com/user-attachments/assets/489e8048-030c-45bf-8323-c2f9628bdeed)
+
+![image](https://github.com/user-attachments/assets/a076eca2-3ece-4b9c-9243-92f14c81c135)
+
+![image](https://github.com/user-attachments/assets/3c19fdb4-cc83-4592-8982-bcb1d95a017d)
+
+**Kafka Kraft**
+
+Kafka's new storage format, introduced in version 2.0, is called Kafka KRaft. It is a new metadata management system that replaces ZooKeeper, which was used in previous versions of Kafka. Kafka KRaft is designed to make Kafka more resilient, scalable, and easier to operate. It allows for easier cluster management, more reliable replication, and faster failover. Kafka KRaft provides a simpler, more unified way to handle metadata, making it easier to deploy and manage Kafka clusters.
+
+![image](https://github.com/user-attachments/assets/e1344168-af4f-480d-bcfd-fdd5d3f41e71)
+
+![image](https://github.com/user-attachments/assets/45449694-fc29-4c82-b178-684f1e662cca)
+
+![image](https://github.com/user-attachments/assets/5bd80b42-d043-43fb-b404-06b247a223dc)
+
+Kafka connect is a framework for take used to interact with external system such as files, databases, Hadoop cluster, and equivalent cloud-based versions 
+
+Kafka connect is used to move data in and out kafka without writing your own kafka producer and consumer code.
+
+**Connectors**
+
+A source connector is used to ingest data kafka topics while a sink connector is used to deliver data from kafka to the desired destination.
 
 
  
