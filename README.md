@@ -23,3 +23,19 @@ You cannot query topics, instead, use kafka Producers to send data and kafka Con
 ![image](https://github.com/user-attachments/assets/82bae9ea-b595-434d-967f-ac679092035a)
 
 In Kafka, a partition is not a file or a physical storage unit, but rather a logical unit of organization for data within a topic. Each partition is a sequence of ordered, immutable records (messages) that belong to a specific topic. Partitions serve as the basic building blocks for data distribution, parallelism, and scalability in Kafka.
+
+![image](https://github.com/user-attachments/assets/dddf0fb4-d62a-471c-8d35-19219f85532d)
+
+![Uploading image.png…]()
+
+A Kafka producer is responsible for publishing data to a Kafka topic. It is a client application that sends messages or records to a Kafka cluster, which is a collection of Kafka brokers that work together to manage the storage and replication of data.
+Producers can be written in different programming languages and can be deployed on different servers. When a producer sends a message to a Kafka topic, it is stored in a partition within that topic. The message is then replicated across multiple brokers to ensure fault tolerance and high availability.
+ 
+  
+ 
+
+ 
+ 
+
+ 
+
