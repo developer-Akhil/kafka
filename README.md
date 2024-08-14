@@ -93,9 +93,9 @@ Since Kafka 2.4, it is possible to configure consumers to read from the closest 
 # Producer Acknowledgment 
 
 In order to write data to the Kafka cluster, the producer has another choice of acknowledgment. It means the producer can get a confirmation of its data writes by receiving the following acknowledgments:
-•	acks=0: This means that the producer sends the data to the broker but does not wait for the acknowledgement. This leads to possible data loss because without confirming that the data is successfully sent to the broker or may be the broker is down, it sends another one.
-•	acks=1: This means that the producer will wait for the leader's acknowledgement. The leader asks the broker whether it successfully received the data, and then returns feedback to the producer. In such case, there is limited data loss only.
-•	acks=all: Here, the acknowledgment is done by both the leader and its followers. When they successfully acknowledge the data, it means the data is successfully received. In this case, there is no data loss.
+"acks=0: This means that the producer sends the data to the broker but does not wait for the acknowledgement. This leads to possible data loss because without confirming that the data is successfully sent to the broker or may be the broker is down, it sends another one."
+"acks=1: This means that the producer will wait for the leader's acknowledgement. The leader asks the broker whether it successfully received the data, and then returns feedback to the producer. In such case, there is limited data loss only."
+"acks=all: Here, the acknowledgment is done by both the leader and its followers. When they successfully acknowledge the data, it means the data is successfully received. In this case, there is no data loss."
 
 
  
