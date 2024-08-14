@@ -9,7 +9,11 @@ A topic is a unique name for kafka stream.
 Each topic has a name that is unique across the entire Kafka cluster.
 
 You can have as many topics as you want.
+
 A topic is identified by its name.
+
 Like a table in database (without all the constraints)
+
 The sequence of message is called a data stream.
+
 You cannot query topics, instead, use kafka Producers to send data and kafka Consumers to read the data.
