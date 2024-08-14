@@ -26,12 +26,29 @@ In Kafka, a partition is not a file or a physical storage unit, but rather a log
 
 ![image](https://github.com/user-attachments/assets/dddf0fb4-d62a-471c-8d35-19219f85532d)
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/0beb83ec-11ab-4e27-80ce-baea1ea3dd04)
 
 A Kafka producer is responsible for publishing data to a Kafka topic. It is a client application that sends messages or records to a Kafka cluster, which is a collection of Kafka brokers that work together to manage the storage and replication of data.
 Producers can be written in different programming languages and can be deployed on different servers. When a producer sends a message to a Kafka topic, it is stored in a partition within that topic. The message is then replicated across multiple brokers to ensure fault tolerance and high availability.
  
-  
+![image](https://github.com/user-attachments/assets/04da8cea-6605-4cb7-9770-004e77224d40)
+
+![image](https://github.com/user-attachments/assets/f610a518-0266-4f0a-a44d-ce8f2c3b7e3b)
+
+![image](https://github.com/user-attachments/assets/35f2b382-9884-46f9-9d9b-75b1e8e1cd63)
+
+Murmur2 Algorithm
+Murmur2 is a hash function used in Apache Kafka to generate a hash value for partitioning messages across different partitions. It takes in a byte array and produces a 32-bit hash value. Kafka uses this hash value to determine the partition to which a message should be written. Murmur2 is preferred over other hash functions due to its speed and low collision rates. It is also used in other distributed systems for consistent hashing.
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+
  
 
  
