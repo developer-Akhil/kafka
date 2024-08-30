@@ -1,6 +1,5 @@
 # kafka
 
-
 ![image](https://github.com/user-attachments/assets/6396a0a5-85d8-4e9a-8787-602d11aeeb88)
 
 # Topic
