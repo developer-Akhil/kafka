@@ -138,7 +138,6 @@ Kafka connect is used to move data in and out kafka without writing your own kaf
 
 A source connector is used to ingest data kafka topics while a sink connector is used to deliver data from kafka to the desired destination.
 
-
  
  
  
